@@ -1,0 +1,78 @@
+//Задание 1
+function calculate(arr = [3, 0, 134, 0, 4, null, 76, 0, 'one', 43, NaN, 2, 0, null, 'two']) {
+    let zero = 0,
+        even = 0,
+        odd = 0;
+    console.log(arr);
+    arr.forEach(function (el, id) {
+        if (typeof el === 'number' && !isNaN(el)) {
+            if (el !== 0) {
+                if (el % 2 == 0) {
+                    even++;
+                } else {
+                    odd++;
+                }
+            } else {
+                zero++;
+            }
+        }
+
+    });
+
+    console.log('Количество чётных ' + even);
+    console.log('Количество нечётных ' + odd);
+    console.log('Количество нулей ' + zero)
+
+}
+calculate([1, 2, 3, 4, 'ew'])
+
+//Задание 2
+function isPrime(num) {
+    let _true = 'число простое', _false = 'ответ неверный';
+    if (num <= 1 && num > 1000) return _false;
+    if (num == 2) return _true;
+    for (let i = 2; i <= num / 2; i++) {
+        if (num % i == 0) {
+            return _false;
+        }
+    }
+    return _true;
+}
+console.log(isPrime(1001));
+console.log(isPrime(53));
+
+//Задание 3
+
+const generateSumFinder = () => {
+    const sum = (a, b) => a + b;
+    return sum;
+};
+
+const sum = generateSumFinder()(7, 12);
+console.log(sum);
+
+//Задание 4
+
+function enumeratedNumbers(min, max) {
+    let current = min;
+
+    let timerId = setInterval(function () {
+        console.log(current);
+        if (current == max) {
+            clearInterval(timerId);
+        }
+        current++;
+    }, 1000);
+}
+
+enumeratedNumbers(5, 15);
+
+//Задание 5
+
+let numberTothePower = (x, n) => {
+
+    let result = x ** n;
+
+    console.log(`Натуральное число 3 в степени 5 будет: ` + result);
+}
+numberTothePower(3, 5);
